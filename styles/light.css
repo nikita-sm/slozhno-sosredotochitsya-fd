@@ -5,10 +5,29 @@
 */
 
 :root.theme-light {
-  /* сохраните этот селектор в приведённом виде.
-    Так стили написанные ниже будут иметь больший вес,
-    чем стили в медиазапросе предпочтений пользователя
-  */
+  --menu-item: #353430; /*Пункты меню и докаративный уголок*/                         /* #353430 */
+  --decor-element: transparent; /*Декоративный элементы*/                                 /*transparent*/
+  --background-image: url(../images/cover-image-light.png); /*Фоновое изображение*/      /*url(../images/cover-image-light.png)*/
+  --background-subtitle: #FF8DCB; /*Фоновый цвет для подзаголовков*/                  /*background: #FF8DCB*/
+  --color-text--subtitle: #353430; /*Цвет текста подзаголовка*/                       /* #353430*/
+  --color-text-h2: #353430; /*Цвет подзаголовка h2*/                                     /*#353430*/
+  --color-text-cards: #353430; /*Цвет текста карточек*/                                 /*#353430;*/
+  --title-text-color: #FFC2E6;; /*Цвет текста основного заголовка*/
+  --hover-border-menu: rgba(50, 49, 45, 0.4);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root.theme-light {
+    --menu-item: #FF0070; /*Пункты меню и докаративный уголок*/                         /* #353430 */
+  --decor-element: #FF0070; /*Декоративный элементы*/                                 /*transparent*/
+  --background-image: url(../images/cover-image-dark.png); /*Фоновое изображение*/      /*url(../images/cover-image-light.png)*/
+  --background-subtitle: #FF0070; /*Фоновый цвет для подзаголовков*/                  /*background: #FF8DCB*/
+  --color-text--subtitle: #000028; /*Цвет текста подзаголовка*/                       /* #353430*/
+  --color-text-h2: #FF0070; /*Цвет подзаголовка h2*/                                     /*#353430*/
+  --color-text-cards: #F1B2CE;
+  --title-text-color: #DB00FF; /*Цвет текста основного заголовка*/
+  --hover-border-menu: rgba(255, 0, 112, 0.4)
+  }
 }
 
 .theme-light .page {
