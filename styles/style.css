@@ -11,17 +11,18 @@
 
 /* класс для задания отступов между логическими блоками header main footer */
 /* Отсутпы для комп и планшет одинаковые 60px, для моб - 40px*/
-.margin-bottom-block:not(.reset-margin-bottom-block) {
+.header {
   margin-bottom: 60px;
 }
 
 
 .header, .footer {
   height: 100vh;
+  min-height: 668px;
 }
 
 .header__theme-menu {
-
+  /*Удалить данный пустой класс*/
 }
 
 .header__theme-menu-list {
@@ -34,7 +35,7 @@
   background-color: transparent;
   border: none;
   text-transform: lowercase;
-  font-family: "IBM Plex mono";
+  font-family: "IBM Plex mono", "Arial", sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 18px;
@@ -63,7 +64,7 @@
 h1.header__title {
   font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem); /* Для компьютеров и планшетов */
   text-transform: lowercase;
-  font-family: "IBM Plex Mono", sans-serif;
+  font-family: "IBM Plex Mono", "Arial", sans-serif;
   font-weight: 700;
   line-height: 129.53px;
   text-shadow: 4px 4px 0 #FF0070;
@@ -75,7 +76,7 @@ h1.header__title {
 
 /* Общий стиль для подзаголовков они все одинаковые, кромы свойства font-weight */
 .subtitle {
-  font-family: "IBM Plex mono", sans-serif;
+  font-family: "IBM Plex mono", "Arial", sans-serif;
   font-weight: 700;
   font-size: 18px;
   line-height: 23.4px;
@@ -101,15 +102,9 @@ h4.subtitle {
   width: 100%;
 }
 
-.card:not(:last-child) {
-  margin-bottom: 20px;
-}
-
-
-
 /* Стили для текста. Везде одиниовые вне зависимости от размера экрана*/
 .card-text {
-  font-family: "IBM Plex mono", sans-serif;
+  font-family: "IBM Plex mono", "Arial", sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 23.4px;
@@ -117,8 +112,8 @@ h4.subtitle {
 }
 
 /* Клас для переноса строки */
-.header__text-break {
-  display: block;
+.main {
+  margin-bottom: 60px;
 }
 
 .main__section {
@@ -140,6 +135,12 @@ h4.subtitle {
   row-gap: 20px;
 }
 
+.grid-template-cols .main__section-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100%, 1f));
+  row-gap: 20px;
+}
+
 .flex-template {
   display: flex;
   flex-direction: column;
@@ -151,6 +152,7 @@ h4.subtitle {
   flex-wrap: wrap;
   flex-direction: row;
   column-gap: 20px;
+  row-gap: 20px;
 }
 
 .flex-template .card {
@@ -165,47 +167,52 @@ h4.subtitle {
 }
 
 /*Стили для картинок. Одинаковые для компьютера и планшета*/
+.img img {
+  width: 100%;
+  height: 100%;
+}
+
+.img {overflow: hidden;}
 
 .img1 {
   grid-column: span 2;
   grid-row: span 1;
-  background-image: url("../images/sunset.png");
-  background-size: contain;
 }
 
 .img2 {
   grid-column: span 1;
   grid-row: span 2;
-  background-image: url("../images/ice-cream.png");
-  background-size: cover;
-  background-position: 50% 0%;
+}
+
+.img2 img {
+  width: 180%;
+  margin-left: -44%;
 }
 
 .img3 {
   grid-column: span 1;
   grid-row: span 2;
-  background-image: url("../images/tape.png");
-  background-size: cover;
-  background-position: 50% 0%;
 }
+
+.img3 img {
+  width: 353%;
+  margin-left: -126%;
+  margin-top: 1%;
+ }
 
 .img4 {
   grid-column: span 1;
   grid-row: span 1;
-  background-image: url("../images/books.png");
-  background-size: contain;
 }
 
 .img5 {
   grid-column: span 2;
   grid-row: span 1;
-  background-image: url("../images/street.png");
-  background-size: contain;
 }
 
 .footer-text {
   text-transform: lowercase;
-  font-family: "IBM Plex Mono", sans-serif;
+  font-family: "IBM Plex Mono", "Arial", sans-serif;
   font-weight: 700;
   line-height: 129.53px;
   text-align: center;
@@ -251,7 +258,7 @@ h4.subtitle {
   position: absolute;
   color: currentColor;
   text-transform: uppercase;
-  font-family: "IBM Plex Mono";
+  font-family: "IBM Plex Mono", "Arial" ,sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 25px;
@@ -289,6 +296,10 @@ a:focus {
 
 a:focus-visible {
   outline: 1px solid currentColor;
+}
+
+.reset-subtitle-margin {
+  margin: 0px;
 }
 
 @media (min-width: 1024px ) {
@@ -329,15 +340,12 @@ a:focus-visible {
     row-gap: 20px;
   }
 
-
-
   .footer {
     min-height: 768px;
     padding-top: 31%;
   }
 
 }
-
 
 @media (min-width: 768px) and (max-width: 1023.99999px) {
   .page {
@@ -349,35 +357,25 @@ a:focus-visible {
     padding-top: 190px;
   }
 
-  .header__theme-menu {
-    outline: 1px solid palevioletred;
-  }
-
   .header__theme-menu-list {
     width: 70px;
     height: 98px;
     flex-direction: column;
-    outline: 1px solid gold;
     margin-right: 20px;
   }
 
   .header__title {
     line-height: 99px;
-    margin-top: 22.6%;
-    letter-spacing: -6px;
+    margin-top: 20.6%;
+    letter-spacing: 0px;
   }
   
   .header__text {
     width: 47.5%;
     font-weight: 700;
-    margin-top: 21.2%;
+    margin-top: 19.2%;
     margin-left: auto;
     margin-right: 19px;
-  }
-
-  /* Этот стиль можно удалить */
-  .grid-template-cols {
-    grid-template-columns: 32.5% 1fr;
   }
 
   .subtitle-width {
@@ -389,6 +387,10 @@ a:focus-visible {
     flex-grow: 1;
   }
 
+  .reset-subtitle-margin {
+    margin: 0px;
+  }
+
   .img_section {
     grid-template-rows: 192px 230px 318px;
     column-gap: 20px;
@@ -398,7 +400,7 @@ a:focus-visible {
   .footer {
     min-height: 1024px;
     padding-top: 58.5%;
-    letter-spacing: -5px;
+    letter-spacing: 0px;
   }
 }
 
@@ -409,7 +411,8 @@ a:focus-visible {
 
   .header {
     min-height: 668px;
-    padding-top: 72px;
+    padding-top: 74px;
+    margin-bottom: 40px;
   }
 
   .header__theme-menu-list {
@@ -419,28 +422,27 @@ a:focus-visible {
     margin-right: 10px;
   }
 
-  .header__title {
+  h1.header__title {
     line-height: 95.7px;
     font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-    margin-top: 19%;
-    margin-left: 10px;
+    margin-top: 18%;
+    margin-left: 8px;
   }
 
   .header__text {
-    background-color: yellow;
     width: 95%;
     font-weight: 700;
-    margin-top: 14%;
+    margin-top: 15%;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .main {
+    margin-bottom: 40px;
   }
   
   .main__section {
     padding: 0px 10px;
-  }
-
-  .margin-bottom-block:not(.reset-margin-bottom-block) {
-    margin-bottom: 40px;
   }
 
   .margin-bottom-section:not(.reset-margin-bottom-section) {
@@ -466,7 +468,6 @@ a:focus-visible {
   .flex-template:has(.img_section) {
     row-gap: 10px;
   }
-  
 
   .footer {
     min-height: 668px;
@@ -474,5 +475,36 @@ a:focus-visible {
     padding-top: 72%;
     letter-spacing: -3px;
   }
+
+  .decorated-zone::before {
+    top: 10px;
+    right: 10px;
+  }
+  
+  .decorated-zone::after {
+    bottom: 10px;
+    left: 10px;
+  }
+
+  .decor-round::before {
+    top: 10px;
+    right: 39px;
+  }
+  
+  .decor-round::after {
+    top: 18px;
+    right: 20px;
+  }
+
+  .img2 img {
+    width: 100%;
+    margin-left: 0%;
+  }
+  
+  .img3 img {
+    width: 100%;
+    margin-left: 0%;
+    margin-top: 0%;
+   }
   
 }
