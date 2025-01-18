@@ -16,7 +16,7 @@
   --hover-border-menu: rgba(50, 49, 45, 0.4);
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
     --menu-item: #353430; /*Пункты меню и докаративный уголок*/                         /* #353430 */
     --decor-element: transparent; /*Декоративный элементы*/                                 /*transparent*/
